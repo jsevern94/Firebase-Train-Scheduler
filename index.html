@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Schedule</title>
+    <!-- My CSS sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Materialize Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            <a href="#" class="brand-logo">Train Schedule</a>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col s1"></div>
+        <div class="col s10">
+            <div class="card-panel z-depth-5">
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency (min)</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Amtrack</td>
+                            <td>Portland</td>
+                            <td>60</td>
+                            <td>14:05</td>
+                            <td>Something</td>
+                        </tr>
+                        <tr>
+                            <td>Cargo Train</td>
+                            <td>Alaska</td>
+                            <td>5000</td>
+                            <td>16:35</td>
+                            <td>Something</td>
+                        </tr>
+                        <tr>
+                            <td>Orient Express</td>
+                            <td>Beijing</td>
+                            <td>2</td>
+                            <td>12:10</td>
+                            <td>Something</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col s1"></div>
+        <div class="col s10">
+            <div class="card-panel z-depth-5">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="train-name" type="text" class="validate">
+                        <label for="train-name">Train Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="destination" type="text" class="validate">
+                        <label for="destination">Destination</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="first-train-time" type="text" class="validate">
+                        <label for="first-train-time">First Train Time</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">(hh:mm - military time)</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="frequency" type="text" class="validate">
+                        <label for="frequency">Frequency</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">(in minutes)</span>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+        <div class="col s1"></div>
+    </div>
+
+
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
