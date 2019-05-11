@@ -44,9 +44,6 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     var tableFreq = sv.frequency;
     var tableFirst = sv.first;
 
-    // //Making the employee start date look correct
-    // var datePretty = moment(dateA).format("MM/DD/YYYY");
-
     // //Calculate the months worked
     var now = moment().format('LLL');
 
