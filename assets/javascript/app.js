@@ -15,7 +15,7 @@ $('#submit-btn').on("click", function () {
 
     event.preventDefault();
 
-    
+
 
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
@@ -54,22 +54,26 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     var tableFreq = sv.frequency;
     var tableFirst = sv.first;
 
-    // //Calculate the months worked
-    var now = moment().format('LLL');
+    var tableFirstConverted = moment(tableFirst, "HH:mm").format('LLL');
 
-    var tableFirstConverted = moment(tableFirst, "HH:mm").subtract(1, "days").format('LLL');
     // Difference between the times
-    var timeDiff = moment().diff(moment(tableFirstConverted), "minutes");
-    console.log(timeDiff);
-    // Time apart (remainder)
-    var remainder = timeDiff % tableFreq;
-    // Minute Until Train
-    var minutesAway = tableFreq - remainder;
-    // Next Train
-    var nextTrain = moment().add(minutesAway, "minutes").format("h:mm a");
+    var timeDiff = Math.abs(moment().diff(moment(tableFirstConverted), "minutes"));
 
-    console.log(now);
+    if (moment().isAfter(tableFirstConverted)) {
+        console.log(timeDiff);
+        // Time apart (remainder)
+        var remainder = timeDiff % tableFreq;
+        // Minute Until Train
+        var minutesAway = tableFreq - remainder;
+        // Next Train
+        var nextTrain = moment().add(minutesAway, "minutes").format("h:mm a");
+    }
+    else {
+        var nextTrain = moment(tableFirstConverted).format("h:mm a");
 
+        var minutesAway = timeDiff + 1;
+
+    }
     var chooChoo = ("<tr><td>" + tableName + "</td><td>" + tableDest + "</td><td>" +
         tableFreq + "</td><td>" + nextTrain + "</td><td>" + minutesAway + "</td></tr>");
 
