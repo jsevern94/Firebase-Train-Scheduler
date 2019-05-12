@@ -15,23 +15,33 @@ $('#submit-btn').on("click", function () {
 
     event.preventDefault();
 
+    
+
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
     var firstTrainTime = $('#first-train-time').val().trim();
     var frequency = $('#frequency').val().trim();
 
-    database.ref().push({
-        name: trainName,
-        destination: destination,
-        first: firstTrainTime,
-        frequency: frequency,
-        dateAdded: firebase.database.ServerValue.TIMESTAMP,
-    });
+    console.log(moment(firstTrainTime, "HH:mm", true).isValid());
 
-    $("#train-name").val("");
-    $("#destination").val("");
-    $('#first-train-time').val("");
-    $('#frequency').val("");
+    if (moment(firstTrainTime, "HH:mm", true).isValid() && trainName && destination && frequency) {
+
+        database.ref().push({
+            name: trainName,
+            destination: destination,
+            first: firstTrainTime,
+            frequency: frequency,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP,
+        });
+
+        $("#train-name").val("");
+        $("#destination").val("");
+        $('#first-train-time').val("");
+        $('#frequency').val("");
+    }
+    else {
+        alert("Please input all required data in the correct format")
+    }
 
 });
 
