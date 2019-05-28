@@ -16,3 +16,10 @@
 h2, h4 {
     color: white;
 }
+
+body {
+  background-image: url("../trains.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

@@ -58,7 +58,8 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
 
     // Difference between the times
     var timeDiff = Math.abs(moment().diff(moment(tableFirstConverted), "minutes"));
-
+    
+    //if first train is in the past
     if (moment().isAfter(tableFirstConverted)) {
         console.log(timeDiff);
         // Time apart (remainder)
@@ -68,6 +69,7 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
         // Next Train
         var nextTrain = moment().add(minutesAway, "minutes").format("h:mm a");
     }
+    //if first train is in the future
     else {
         var nextTrain = moment(tableFirstConverted).format("h:mm a");
 
@@ -79,7 +81,3 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
 
     $("#main-train").append(chooChoo);
 });
-
-
-
-
